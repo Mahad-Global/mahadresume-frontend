@@ -1,11 +1,18 @@
-# Force UTF-8 encoding for all text content
+# Force UTF-8 encoding
 AddDefaultCharset UTF-8
 AddCharset UTF-8 .html .css .js .json .svg .xml
 
-# SPA fallback — serve index.html for all non-file routes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Proxy Django backend requests to Gunicorn (127.0.0.1:8000)
+  RewriteRule ^api/(.*)$ http://127.0.0.1:8000/api/$1 [P,L]
+  RewriteRule ^admin/(.*)$ http://127.0.0.1:8000/admin/$1 [P,L]
+  RewriteRule ^static/(.*)$ http://127.0.0.1:8000/static/$1 [P,L]
+  RewriteRule ^media/(.*)$ http://127.0.0.1:8000/media/$1 [P,L]
+
+  # SPA fallback — serve index.html for all non-file routes
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
