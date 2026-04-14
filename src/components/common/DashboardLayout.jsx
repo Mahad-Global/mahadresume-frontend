@@ -5,11 +5,13 @@ import Logo from './Logo'
 
 const jobseekerNav = [
   { label: 'Dashboard', path: '/dashboard', icon: '🏠' },
-  { label: 'My Resumes', path: '/dashboard/resume', icon: '📄' },
-  { label: 'ATS Checker', path: '/dashboard/ats', icon: '🎯' },
+  { label: 'My Resumes', path: '/dashboard/resumes', icon: '📄' },
   { label: 'Templates', path: '/dashboard/templates', icon: '🎨' },
-  { label: 'Job Match', path: '/dashboard/jobs', icon: '💼' },
+  { label: 'ATS Checker', path: '/dashboard/ats', icon: '🎯' },
   { label: 'Cover Letter', path: '/dashboard/cover-letter', icon: '✉️' },
+  { label: 'Job Match', path: '/dashboard/jobs', icon: '💼' },
+  { label: 'Documents', path: '/dashboard/documents', icon: '📁' },
+  { label: 'My Profile', path: '/dashboard/profile', icon: '👤' },
   { label: 'Subscription', path: '/dashboard/subscription', icon: '⭐' },
 ]
 

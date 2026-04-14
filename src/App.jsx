@@ -1,14 +1,18 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import ChatWidget from './components/common/ChatWidget'
 import useAuthStore from './store/authStore'
 
-// Lazy load pages
+// Pages
 import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/RegisterPage'
 import ForgotPassword from './pages/auth/ForgotPassword'
 import Dashboard from './pages/dashboard/Dashboard'
 import ResumeBuilder from './pages/dashboard/ResumeBuilder'
+import MyResumes from './pages/dashboard/MyResumes'
+import MyProfile from './pages/dashboard/MyProfile'
+import Documents from './pages/dashboard/Documents'
 import ATSChecker from './pages/dashboard/ATSChecker'
 import Templates from './pages/dashboard/Templates'
 import JobMatch from './pages/dashboard/JobMatch'
@@ -51,6 +55,9 @@ export default function App() {
         {/* Job Seeker Dashboard */}
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route path="/dashboard/resume/:id?" element={<PrivateRoute><ResumeBuilder /></PrivateRoute>} />
+        <Route path="/dashboard/resumes" element={<PrivateRoute><MyResumes /></PrivateRoute>} />
+        <Route path="/dashboard/profile" element={<PrivateRoute><MyProfile /></PrivateRoute>} />
+        <Route path="/dashboard/documents" element={<PrivateRoute><Documents /></PrivateRoute>} />
         <Route path="/dashboard/ats" element={<PrivateRoute><ATSChecker /></PrivateRoute>} />
         <Route path="/dashboard/templates" element={<PrivateRoute><Templates /></PrivateRoute>} />
         <Route path="/dashboard/jobs" element={<PrivateRoute><JobMatch /></PrivateRoute>} />
